@@ -35,12 +35,15 @@ public class User {
     }
 
     public User(String login, String password,
-                String passwordConfirm, String FIO, List<Contact> contactList) {
+                String FIO) {
         this.login = login;
         this.password = password;
-        this.passwordConfirm = passwordConfirm;
         this.FIO = FIO;
-        this.contactList = contactList;
+    }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 
     public long getId() {
