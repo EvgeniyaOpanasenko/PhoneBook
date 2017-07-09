@@ -6,5 +6,5 @@ import phone.book.model.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findByUsername(String username);
+    User findByLogin(String name);
 }

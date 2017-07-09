@@ -1,42 +1,46 @@
 package phone.book.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @Size(min = 5, max = 10)
+    @Pattern(regexp = "\\`|\\~|\\!|\\@|\\#|\\$|\\%|\\^|\\&|\\*|" +
+            "\\(|\\)|\\+|\\=|\\[|\\{|\\]|\\}|\\||\\\\|\\'|\\<|\\,|" +
+            "\\.|\\>|\\?|\\/|\\\"\"|\\;|\\:|\\s")
     private String login;
+
+    @Size(min = 5)
     private String password;
     private String passwordConfirm;
 
-    private String name;
-    private String surname;
-    private String secondName;
+    @Size(min = 5)
+    private String FIO;
 
-    @OneToMany( mappedBy = "user")
+
+    @OneToMany(mappedBy = "user")
     List<Contact> contactList;
 
     public User() {
     }
 
-    public User(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
     public User(String login, String password,
-                String passwordConfirm, String name,
-                String surname, String secondName) {
+                String passwordConfirm, String FIO, List<Contact> contactList) {
         this.login = login;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.name = name;
-        this.surname = surname;
-        this.secondName = secondName;
+        this.FIO = FIO;
+        this.contactList = contactList;
     }
 
     public long getId() {
@@ -71,28 +75,12 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public String getName() {
-        return name;
+    public String getFIO() {
+        return FIO;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setFIO(String FIO) {
+        this.FIO = FIO;
     }
 
     public List<Contact> getContactList() {
