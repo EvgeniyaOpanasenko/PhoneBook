@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface ContactService {
 
-    boolean save(Contact contact);
+    Iterable<Contact> getAll();
 
-    boolean delete(long id);
+    Contact getById(long articleId);
 
-    boolean edit(long id);
+    boolean create(Contact contact);
 
-    List<Contact> getAll();
+    void update(Contact contact);
+
+    void delete(long id);
 }

@@ -20,7 +20,7 @@ public class ContactController {
 
     @GetMapping("all-contacts")
     public ResponseEntity<List<Contact>> getAllContacts(){
-        List<Contact> contacts = service.getAll();
+        List<Contact> contacts = (List<Contact>) service.getAll();
         return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
     }
 }
