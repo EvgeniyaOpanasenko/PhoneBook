@@ -1,7 +1,10 @@
 package phone.book.repository;
 
-/**
- * Created by User on 7/9/2017.
- */
-public interface UserRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import phone.book.model.User;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUsername(String username);
 }

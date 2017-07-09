@@ -1,7 +1,9 @@
 package phone.book.repository;
 
-/**
- * Created by User on 7/9/2017.
- */
-public interface ContactRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import phone.book.model.Contact;
+
+@Repository
+public interface ContactRepository extends CrudRepository<Contact, Long> {
 }
