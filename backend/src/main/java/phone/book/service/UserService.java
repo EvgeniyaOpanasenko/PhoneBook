@@ -1,7 +1,11 @@
 package phone.book.service;
 
-/**
- * Created by User on 7/9/2017.
- */
+
+import phone.book.model.User;
+
 public interface UserService {
+
+    void save(User user);
+
+    User findByUsername(String username);
 }
