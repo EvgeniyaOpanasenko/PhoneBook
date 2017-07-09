@@ -27,7 +27,6 @@ public class User {
     @Size(min = 5)
     private String FIO;
 
-
     @OneToMany(mappedBy = "user")
     List<Contact> contactList;
 
