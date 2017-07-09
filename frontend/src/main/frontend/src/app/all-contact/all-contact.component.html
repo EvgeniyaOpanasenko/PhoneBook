@@ -1,3 +1,23 @@
 <p>
   all-contact works!
 </p>
+
+
+<h3>Contacts Details</h3>
+<table>
+  <tr><th> Id</th> <th>Name</th><th>Surname</th><th>Secondname</th><th>Cell Phone</th>
+    <th>Home Phone</th><th>Address</th><th>Mail</th></tr>
+  <tr *ngFor="let contact of allContacts" >
+    <td>{{contact.id}}</td>
+    <td>{{contact.name}}</td>
+    <td>{{contact.surname}}</td>
+    <td>{{contact.secondName}}</td>
+    <td>{{contact.cellPhone}}</td>
+    <td>{{contact.homePhone}}</td>
+    <td>{{contact.address}}</td>
+    <td>{{contact.mail}}</td>
+
+   <!-- <td><button type="button" (click)="loadToEdit(article.articleId)">Edit</button> </td>
+    <td><button type="button" (click)="deleteArticle(article.articleId)">Delete</button></td>-->
+  </tr>
+</table>
