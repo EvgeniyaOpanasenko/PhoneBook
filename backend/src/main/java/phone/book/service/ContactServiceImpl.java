@@ -6,6 +6,7 @@ import phone.book.model.Contact;
 import phone.book.repository.ContactRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -33,6 +34,12 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void delete(long id) {
 
+    }
+
+    @Override
+    public List<Contact> getContactsByAuthorId(long id) {
+        return getAll().stream().filter(
+                contact -> contact.getAuthor().getId() == id).collect(Collectors.toList());
     }
 
     @Override

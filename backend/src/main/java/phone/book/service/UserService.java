@@ -5,7 +5,7 @@ import phone.book.model.User;
 
 public interface UserService {
 
-    void save(User user);
+    boolean save(User user);
 
     User findByLogin(String login);
 

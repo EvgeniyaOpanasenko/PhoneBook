@@ -16,4 +16,6 @@ public interface ContactService {
     void update(Contact contact);
 
     void delete(long id);
+
+    List<Contact> getContactsByAuthorId(long id);
 }
