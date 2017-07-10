@@ -4,11 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -27,7 +28,7 @@ public class User {
     @Size(min = 5)
     private String FIO;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "author")
     List<Contact> contactList;
 
     public User() {

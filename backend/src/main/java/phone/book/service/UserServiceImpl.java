@@ -19,7 +19,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByLogin(String login) {
+
         return null;
+    }
+
+    @Override
+    public Iterable<User> getAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User getById(long id) {
+        return userRepository.findOne(id);
     }
 
 }

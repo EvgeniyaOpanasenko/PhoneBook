@@ -12,13 +12,13 @@ import phone.book.service.ContactService;
 import java.util.List;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class ContactController {
 
     @Autowired
     private ContactService service;
 
-    @GetMapping("all-contacts")
+    @GetMapping("/all-contacts")
     public ResponseEntity<List<Contact>> getAllContacts(){
         List<Contact> contacts = (List<Contact>) service.getAll();
         return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);

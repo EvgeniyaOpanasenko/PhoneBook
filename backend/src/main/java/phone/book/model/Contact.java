@@ -1,10 +1,12 @@
 package phone.book.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table( name = "contacts")
-public class Contact {
+/*@NamedQuery(name = "getAllContacts", query = "select c from Contacts c")*/
+public class Contact implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
@@ -20,7 +22,7 @@ public class Contact {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private User author;
 
     public Contact() {
     }
@@ -101,11 +103,11 @@ public class Contact {
         this.mail = mail;
     }
 
-    public User getUser() {
-        return user;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
