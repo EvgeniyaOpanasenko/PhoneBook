@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ContactService {
 
-    Iterable<Contact> getAll();
+    List<Contact> getAll();
 
     Contact getById(long articleId);
 

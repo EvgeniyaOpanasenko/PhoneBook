@@ -38,7 +38,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public List<Contact> getAll() {
 
-        return (List<Contact>) repository.findAll();
+        return repository.findAll();
     }
 
     @Override

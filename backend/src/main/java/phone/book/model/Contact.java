@@ -1,14 +1,15 @@
 package phone.book.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table( name = "contacts")
-/*@NamedQuery(name = "getAllContacts", query = "select c from Contacts c")*/
-public class Contact implements Serializable{
+@Table(name = "contacts")
+public class Contact implements Serializable {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String name;
@@ -19,7 +20,7 @@ public class Contact implements Serializable{
     private String address;
     private String mail;
 
-
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User author;
