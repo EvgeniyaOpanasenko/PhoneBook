@@ -41,9 +41,15 @@ public class MainController {
     }
 
     @GetMapping("/all-users")
-    public ResponseEntity<List<User>> getAllContacts() {
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> contacts = (List<User>) userService.getAll();
         return new ResponseEntity<List<User>>(contacts, HttpStatus.OK);
+    }
+
+    @GetMapping("/contacts")
+    public ResponseEntity<List<Contact>> getAllContacts(){
+        List<Contact> contacts = (List<Contact>) contactService.getAll();
+        return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
     }
 
   /*  @GetMapping("/user{id}")
