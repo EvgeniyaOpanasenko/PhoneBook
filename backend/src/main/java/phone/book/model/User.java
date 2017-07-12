@@ -18,7 +18,7 @@ public class User implements Serializable{
    /* @Pattern(regexp = "\\`|\\~|\\!|\\@|\\#|\\$|\\%|\\^|\\&|\\*|" +
             "\\(|\\)|\\+|\\=|\\[|\\{|\\]|\\}|\\||\\\\|\\'|\\<|\\,|" +
             "\\.|\\>|\\?|\\/|\\\"\"|\\;|\\:|\\s")*/
-    private String login;
+    private String username;
 
     @Size(min = 5)
     private String password;
@@ -33,15 +33,15 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(String login, String password,
+    public User(String username, String password,
                 String FIO) {
-        this.login = login;
+        this.username = username;
         this.password = password;
         this.FIO = FIO;
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
@@ -53,12 +53,12 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
