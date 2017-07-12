@@ -40,6 +40,12 @@ public class MainController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
+    @GetMapping("/all-users")
+    public ResponseEntity<List<User>> getAllContacts() {
+        List<User> contacts = (List<User>) userService.getAll();
+        return new ResponseEntity<List<User>>(contacts, HttpStatus.OK);
+    }
+
   /*  @GetMapping("/user{id}")
     public ResponseEntity<List<Contact>> getAllContactsByUser() {
         List<Contact> contacts =  contactService.getContactsByAuthor(id);

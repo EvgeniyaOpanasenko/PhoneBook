@@ -18,7 +18,7 @@ public class ContactController {
     @Autowired
     private ContactService service;
 
-    @GetMapping("/all-contacts")
+    @GetMapping("/contacts")
     public ResponseEntity<List<Contact>> getAllContacts(){
         List<Contact> contacts = (List<Contact>) service.getAll();
         return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
