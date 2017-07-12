@@ -1,3 +1,112 @@
-<p>
-  add-contact works!
-</p>
+<h3> Create New Contact </h3>
+
+<div>
+  <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit()">
+    <table>
+      <tr>
+        <td>Enter Name</td>
+        <td><input formControlName="name">
+          <label *ngIf="contactForm.get('name').invalid && processValidation" [ngClass]="'error'"> Name is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Surname</td>
+        <td><input formControlName="surname">
+          <label *ngIf="contactForm.get('surname').invalid && processValidation" [ngClass]="'error'"> Surname is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Second Name</td>
+        <td><input formControlName="secondName">
+          <label *ngIf="contactForm.get('secondName').invalid && processValidation" [ngClass]="'error'"> Second Name is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Cell Phone</td>
+        <td><input formControlName="cellPhone">
+          <label *ngIf="contactForm.get('cellPhone').invalid && processValidation" [ngClass]="'error'"> Cell Phone is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Home Phone</td>
+        <td><input formControlName="homePhone">
+          <label *ngIf="contactForm.get('homePhone').invalid && processValidation" [ngClass]="'error'"> Home Phone is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Address</td>
+        <td><input formControlName="address">
+          <label *ngIf="contactForm.get('address').invalid && processValidation" [ngClass]="'error'"> Address is
+            required. </label>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Mail</td>
+        <td><input formControlName="mail">
+          <label *ngIf="contactForm.get('mail').invalid && processValidation" [ngClass]="'error'"> Mail is
+            required. </label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <button>CREATE</button>
+          <!-- <button *ngIf="articleIdToUpdate">UPDATE</button>-->
+          <button (click)="backToCreateArticle()" *ngIf="articleIdToUpdate">Go Back</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <br/>
+  <div *ngIf="statusCode; else processing">
+    <div *ngIf="statusCode === 201" [ngClass]="'success'">
+      Contact added successfully.
+    </div>
+    <div *ngIf="statusCode === 409" [ngClass]="'success'">
+      Contact already exists.
+    </div>
+    <div *ngIf="statusCode === 200" [ngClass]="'success'">
+      Contact updated successfully.
+    </div>
+    <div *ngIf="statusCode === 204" [ngClass]="'success'">
+      Contact deleted successfully.
+    </div>
+    <div *ngIf="statusCode === 500" [ngClass]="'error'">
+      Internal Server Error.
+    </div>
+  </div>
+</div>
+
+<div>
+  <h3>Contacts Details</h3>
+  <table>
+    <tr>
+      <th> Id</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Secondname</th>
+      <th>Cell Phone</th>
+      <th>Home Phone</th>
+      <th>Address</th>
+      <th>Mail</th>
+    </tr>
+    <tr *ngFor="let contact of allContacts">
+      <td>{{contact.id}}</td>
+      <td>{{contact.name}}</td>
+      <td>{{contact.surname}}</td>
+      <td>{{contact.secondName}}</td>
+      <td>{{contact.cellPhone}}</td>
+      <td>{{contact.homePhone}}</td>
+      <td>{{contact.address}}</td>
+      <td>{{contact.mail}}</td>
+
+      <!-- <td><button type="button" (click)="loadToEdit(article.articleId)">Edit</button> </td>
+       <td><button type="button" (click)="deleteArticle(article.articleId)">Delete</button></td>-->
+    </tr>
+  </table>
+</div>

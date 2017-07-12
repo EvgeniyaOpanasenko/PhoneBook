@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu.component';
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    CONST_ROUTING
+    CONST_ROUTING,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
