@@ -1,3 +1,21 @@
-<p>
-  username works!
-</p>
+<h2>Login</h2>
+
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="onloginFormSubmit()">
+    <table>
+      <tr>
+        <td>Enter Username</td>
+        <td><input formControlLogin="login">
+          <label *ngIf="loginForm.get('login').invalid && processValidation" [ngClass]="'error'"> Username is
+            required. </label>
+      </tr>
+      <tr>
+        <td>Enter Password</td>
+        <td><input formControlLogin="password">
+          <label *ngIf="loginForm.get('password').invalid && processValidation" [ngClass]="'error'"> Password is
+            required. </label>
+      </tr>
+    </table>
+  </form>
+</div>
+
